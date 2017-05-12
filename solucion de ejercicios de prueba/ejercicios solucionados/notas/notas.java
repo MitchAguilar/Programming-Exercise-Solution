@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class notas {
@@ -8,21 +7,28 @@ public class notas {
         int a = sc.nextInt();
         for (int i = 0; i < a; i++) {
             String b = sc.next();
-            double d=0;
+            double d = 0;
+            //010101001
             double c = 0;
             for (int j = 0; j < b.length(); j++) {
-                if (b.charAt(j) == '1' && b.charAt(j + 1) == '0') {
-                    c += 10;
+                try {
+                    if (b.charAt(j) == '1' && b.charAt(j + 1) == '0') {
+                        c += 10;
+                        d++;
+                        j++;
+                    } else {
+                        c += Integer.parseInt(b.charAt(j) + "");
+                        d++;
+
+                    }
+                } catch (Exception e) {
                     d++;
-                    j++;
-                } else {
                     c += Integer.parseInt(b.charAt(j) + "");
-                    d++;
                 }
             }
-            double e=(c/d);
-            System.out.printf("%.2f\n",e);
+            double e = (c / d);
+            System.out.printf("%.2f\n", e);
         }
-    }
 
+    }
 }
